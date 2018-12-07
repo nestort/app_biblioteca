@@ -86,7 +86,7 @@ export class RegistroPage {
       console.log("sucess" + this.usuario.Nombre.trim().length);
       return true;
     } else {
-      console.log("error de validacion" + this.usuario.Nombre.trim().length);
+      console.log("error" + this.usuario.Nombre.trim().length);
       return false;
     }
   }

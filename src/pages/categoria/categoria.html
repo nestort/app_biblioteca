@@ -1,0 +1,31 @@
+<!--
+  Generated template for the CategoriaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>categoria</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  
+  <ion-card  ion-item *ngFor="let nota of libros" (click)="VerDetalle(nota)">
+    <img src='{{nota.imagen}}'/>
+    <ion-card-content>
+      <ion-card-title>
+        {{nota.titulo}}
+        </ion-card-title>
+      <p>
+        {{nota.clasificacion}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+  
+ 
+</ion-content>

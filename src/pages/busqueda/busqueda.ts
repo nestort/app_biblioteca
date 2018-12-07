@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import {CategoriaPage} from '../../pages/categoria/categoria';
 /**
  * Generated class for the BusquedaPage page.
  *
@@ -21,5 +21,7 @@ export class BusquedaPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad BusquedaPage');
   }
-
+  categoriaSelect(Categoria){
+    this.navCtrl.push(CategoriaPage, {categoria: Categoria});
+  }
 }

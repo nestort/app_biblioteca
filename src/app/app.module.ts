@@ -11,6 +11,7 @@ import { RegistroPage } from '../pages/registro/registro';
 import {CatalogoPage} from '../pages/catalogo/catalogo';
 import {BusquedaPage} from '../pages/busqueda/busqueda';
 import {SocialPage} from '../pages/social/social';
+import {CategoriaPage} from '../pages/categoria/categoria';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
@@ -35,7 +36,8 @@ export const  config = {
     RegistroPage,
     CatalogoPage,
     BusquedaPage,
-    SocialPage
+    SocialPage,
+    CategoriaPage
   ],
   imports: [
     BrowserModule,
@@ -52,7 +54,8 @@ export const  config = {
     RegistroPage,
     CatalogoPage,
     BusquedaPage,
-    SocialPage
+    SocialPage,
+    CategoriaPage
   ],
   providers: [
     StatusBar,

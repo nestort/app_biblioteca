@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,AlertController,ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AngularFireDatabase, AngularFireAction } from '@angular/fire/database';
 import { Observable, Subscription, BehaviorSubject } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { AlertController } from 'ionic-angular';
 
 /**
  * Generated class for the CatalogoPage page.
@@ -20,7 +21,7 @@ export class CatalogoPage  {
   items$: Observable<AngularFireAction<firebase.database.DataSnapshot>[]>;
   size$: BehaviorSubject<string|null>;
 notas:Object[]=[];
-  constructor(public modalCtrl: ModalController,public navCtrl: NavController, public navParams: NavParams, public afDB: AngularFireDatabase,private alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public afDB: AngularFireDatabase, private alertCtrl: AlertController) {
     this.size$ = new BehaviorSubject(null);
     this.items$ = this.size$.pipe(switchMap(size =>afDB.list(
       '/libros', ref =>size ? ref.orderByChild('titulo').limitToFirst(100)
@@ -39,6 +40,16 @@ notas:Object[]=[];
     
   }
 
+
+  
+  getItems(event) {
+    
+    this.size$.next(event.target.value);
+    
+    console.log(event.target.value);
+    
+  }
+
   goToDetalle(event){
     
 
@@ -50,12 +61,12 @@ notas:Object[]=[];
     alert.present();
     console.log(event.payload.key)
   }
-  
-  getItems(event) {
-    
-    this.size$.next(event.target.value);
-    
-    console.log(event.target.value);
-    
+  presentAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'Low battery',
+      subTitle: '10% of battery remaining',
+      buttons: ['Dismiss']
+    });
+    alert.present();
   }
 }
